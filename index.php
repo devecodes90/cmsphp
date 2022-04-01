@@ -1,6 +1,7 @@
 <?php
 
 use \Core\Config;
+use \Core\Router;
 
 session_start();
 
@@ -16,7 +17,11 @@ session_start();
       $path = PROOT . DS . $path . DS . $class . '.php';
       if (file_exists($path)) {include $path;}
    });
+   $rootDir = Config::get('root_dir');
+   define('ROOT', $rootDir);
 
-   $dbName = Config::get('db_name');
-   var_dump($dbName);
+   $url = $_SERVER['REQUEST_URI'];
+   $url = str_replace(ROOT, '', $url);
+   $url = preg_replace('/(\?.+)/', '', $url);
+   Router::route($url);
 ?>
