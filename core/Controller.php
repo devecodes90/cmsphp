@@ -1,6 +1,6 @@
 <?php
 
-namespace core;
+namespace Core;
 
 class Controller
 {
@@ -10,6 +10,6 @@ class Controller
    public function __construct($controller, $action){
        $this->_controllerName = $controller;
        $this->_actionName = $action;
-       var_dump($controller);
+      
    }
 }
