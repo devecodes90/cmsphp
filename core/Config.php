@@ -12,7 +12,7 @@ class Config
           'db_name'            => 'php_cms',  // DB name
           'db_user'            => 'root',    // DB user
           'db_pass'            => '',  // DB password
-          'login_cookie_name' => 'hakdjri2341l8a' ,    //login_cookies_name
+          'login_cookie_name'  => 'hakdjri2341l8a' ,    //login_cookies_name
       ];
 
       public static function get($key){

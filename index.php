@@ -1,7 +1,6 @@
 <?php
 
-use \Core\Config;
-use \Core\Router;
+use \Core\{Config, Router};
 
 session_start();
 
