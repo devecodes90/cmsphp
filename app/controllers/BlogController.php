@@ -1,13 +1,26 @@
 <?php
 
 namespace App\Controllers;
-use Core\{DB,Controller, H};
+use Core\{DB, Controller, H};
 
 
 class BlogController extends Controller
 {
     public function indexAction(){
+
       $db = DB::getInstance();
+      $sql = "INSERT INTO articles (`title`, `body`) VALUES (:title, :body)";
+      $bind = ['title' => 'new title', 'body' => 'the first article body'];
+      $query = $db->execute($sql, $bind); 
+      $lastId = $query->lastInsertId();
+      H::dnd($lastId);
+
+      //  $sql = "SELECT * FROM articles";
+      //  $query = $db->query($sql);
+      //  $articles = $query->results();
+      //  $count = $query->lastInsertId();
+      //  H::dnd($count);
+
       $this->view->setSiteTitle('Newest Articles');
       $this->view->render();
     }

@@ -73,5 +73,7 @@ class View{
            include($fullpath);
        } 
     }
+
+   
 } 
 
